@@ -39,16 +39,33 @@ TEST_CASE("Rational Numbers")
 
         RationalNumber num3(1, 2);
         RationalNumber num4(2, 4);
+        
+        // REQUIRE(num3.getReducedNumerator()==1);
+        // REQUIRE(num3.getReducedDenominator()==2);
+
+        // REQUIRE(num4.getReducedNumerator()==1);
+        // REQUIRE(num4.getReducedDenominator()==2);
 
         REQUIRE(num3.compareEquals(num4));
         REQUIRE(num4.compareEquals(num3));
+
+        RationalNumber n5(4,2);
+        RationalNumber n6(2,1);
+
+        RationalNumber n7(0, 9);
+        RationalNumber n8(0, 10);
+
+        REQUIRE(n5.compareEquals(n6));
+        REQUIRE(n6.compareEquals(n5));
+
+        REQUIRE(n7.compareEquals(n8));
     }
     
-    // SECTION("Test add()")
-    // {
-    //     RaionalNumber num1(1, 2);
-    //     RationalNumber num2(3, 4);
-    //     RationalNumber result(5, 4);
-    //     REQUIRE(result.compare(num1.add(num2).toString()));
-    // }
+    SECTION("Test add()")
+    {
+        RationalNumber num1(1, 2);
+        RationalNumber num2(3, 4);
+        RationalNumber result(5, 4);
+        REQUIRE(result.compareEquals(num1.add(num2)));
+    }
 }
